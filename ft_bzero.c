@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:19:07 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/01/18 11:54:09 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:54:51 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
+	char	*p_s;
 
-	i = 0;
-	while (n > 0)
-	{
-		*((char *)s + i) = 0;
-		n--;
-		i++;
-	}
+	p_s = s;
+	while (n-- > 0)
+		*(p_s++) = 0;
 }

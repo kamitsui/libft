@@ -6,21 +6,25 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 10:09:02 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/01/17 17:32:53 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:46:23 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-struct	item {
-	int	val;
-	char *str;
-};
-
-int	main(void)
+void	*ft_calloc(size_t count, size_t size)
 {
-	struct item	*arr;
+	void	*p_ret;
+	size_t	total;
 
-	arr = calloc(10, sizeof(item)); // use of undeclared identifier 'item' 未宣言識別子の状態　？？わからん
-//	printf("%s\n", arr);
+	total = count * size;
+	if (size != 0 && total / size != count)
+		return (NULL);
+	if (total == 0)
+		return (ft_calloc(1, 1));
+	p_ret = malloc(total);
+	if (!(p_ret == NULL))
+		ft_bzero(p_ret, total);
+	return (p_ret);
 }

@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2023/01/22 16:21:50 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/01/22 21:55:52 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS = \
 	   ft_memcmp.c \
 	   ft_strnstr.c \
 	   ft_atoi.c \
+	   ft_calloc.c \
 \
 	   ft_isupper.c \
 	   ft_islower.c \
