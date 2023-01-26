@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnlen.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 21:47:08 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/01/26 21:24:28 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/01/26 19:52:32 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/01/26 19:52:38 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-size_t	ft_strnlen(const char *s, size_t maxlen)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
 	size_t	len;
+	size_t	i;
 
-	len = 0;
-	if (!maxlen)
-		return (len);
-	while (*s)
+	len = ft_strlen(s1);
+	i = 0;
+	while (i < n && s2[i])
 	{
-		if (len == maxlen)
-			break ;
-		len++;
-		s++;
+		s1[len + i] = s2[i];
+		i++;
 	}
-	return (len);
+	s1[len + i] = '\0';
+	return (s1);
 }

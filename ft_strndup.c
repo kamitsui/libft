@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnlen.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 21:47:08 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/01/26 21:24:28 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/01/26 15:04:52 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/01/26 16:13:21 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
+#include "libft.h"
 
-size_t	ft_strnlen(const char *s, size_t maxlen)
+char	*ft_strndup(const char *s1, size_t n)
 {
 	size_t	len;
+	char	*result;
 
-	len = 0;
-	if (!maxlen)
-		return (len);
-	while (*s)
-	{
-		if (len == maxlen)
-			break ;
-		len++;
-		s++;
-	}
-	return (len);
+	len = ft_strnlen(s1, n);
+	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
+	result[len] = '\0';
+	return (ft_memcpy(result, s1, len));
 }

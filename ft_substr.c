@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnlen.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 21:47:08 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/01/26 21:24:28 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/01/25 16:53:22 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/01/26 15:06:34 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
+#include "libft.h"
 
-size_t	ft_strnlen(const char *s, size_t maxlen)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	len;
-
-	len = 0;
-	if (!maxlen)
-		return (len);
-	while (*s)
-	{
-		if (len == maxlen)
-			break ;
-		len++;
-		s++;
-	}
-	return (len);
+	if (s == NULL)
+		return (NULL);
+	if (ft_strlen(s) < start)
+		return (ft_strdup(""));
+	return (ft_strndup(s + start, len));
 }

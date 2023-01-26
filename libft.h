@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:55:57 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/01/22 21:55:22 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/01/26 19:53:46 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,18 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
+
+// Libft-02
 void	*ft_calloc(size_t count, size_t size);
+char	*ft_strdup(const char *s1);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 // Additional functions (from libc)
 int		ft_isupper(int c);
 int		ft_islower(int c);
 size_t	ft_strnlen(const char *s, size_t max_len);
+char	*ft_strncat(char *s1, const char *s2, size_t n);
 long	ft_strtol(const char *str, char **endptr, int base);
+char	*ft_strndup(const char *s1, size_t n);
 
 #endif

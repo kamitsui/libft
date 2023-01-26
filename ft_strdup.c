@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnlen.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 21:47:08 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/01/26 21:24:28 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/01/24 22:44:22 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/01/25 16:40:33 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
+#include "libft.h"
 
-size_t	ft_strnlen(const char *s, size_t maxlen)
+char	*ft_strdup(const char *s1)
 {
 	size_t	len;
+	char	*copy;
 
-	len = 0;
-	if (!maxlen)
-		return (len);
-	while (*s)
-	{
-		if (len == maxlen)
-			break ;
-		len++;
-		s++;
-	}
-	return (len);
+	len = ft_strlen(s1) + 1;
+	copy = malloc(sizeof(char) * len);
+	if (copy == NULL)
+		return (NULL);
+	ft_memcpy(copy, s1, len);
+	return (copy);
 }
