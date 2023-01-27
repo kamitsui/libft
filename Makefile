@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2023/01/26 19:54:52 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/01/27 22:21:30 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,8 @@ SRCS = \
 	   ft_calloc.c \
 	   ft_strdup.c \
 	   ft_substr.c \
+	   ft_strjoin.c \
+	   ft_strtrim.c \
 \
 	   ft_strndup.c
 
@@ -52,10 +54,20 @@ OBJS = $(SRCS:.c=.o)
 CC = cc
 CFLAGS = -g -Wall -Wextra -Werror
 
+#ifdef withbonus
+#	SRCS += $SRCS_B
+#	OBJS += $OBJS_B
+#endif
+#	(SRCSに追加する)
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar -r $@ $^
+
+#bonus:
+#	make withbonus=1
+#	#makeを実行するだけ　SRCSとOBJSの中身が変わって　0だと通らない
 
 .c.o:
 	$(CC) $(CFLAGS) -c $<
