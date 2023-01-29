@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2023/01/27 22:21:30 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/01/29 12:39:53 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRCS = \
 	   ft_substr.c \
 	   ft_strjoin.c \
 	   ft_strtrim.c \
+	   ft_split.c \
 \
 	   ft_strndup.c
 
