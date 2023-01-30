@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2023/01/29 12:39:53 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/01/30 21:53:20 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,12 +48,13 @@ SRCS = \
 	   ft_strjoin.c \
 	   ft_strtrim.c \
 	   ft_split.c \
+	   ft_itoa.c \
 \
 	   ft_strndup.c
 
 OBJS = $(SRCS:.c=.o)
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror #-fsanitize=address
 
 #ifdef withbonus
 #	SRCS += $SRCS_B

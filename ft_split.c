@@ -6,55 +6,20 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 11:06:25 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/01/29 19:30:23 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/01/30 21:34:56 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>// worning
 #include <stdlib.h>
 #include "libft.h"
 
-static size_t	ft_split_count(char *p, char c)
+static char	**ft_allocate_split_strings(char **result, char *p, char c)
 {
-	size_t	count;
-
-	count = 0;
-	while (*p)
-	{
-		if (*p == c)
-		{
-			p++;
-			continue ;
-		}
-//		while (*p == c)// crush
-//			p++;
-		count++;
-		while (*p && *p != c)
-		{
-			p++;
-		}
-	}
-	return (count);
-}
-
-// not norminette (more than 25 line)
-char	**ft_split(const char *s, char c)
-{
-	char	**result;
-	char	*p;
 	char	*start;
 	size_t	count;
 
-	p = (char *)s;
-	count = ft_split_count(p, c);
-	if (count == 0)
-		count = 1;
-	result = (char **)malloc(sizeof(char *) * (count + 1));
-	if (result == NULL)
-		return (NULL);
-	result[count] = NULL;
 	count = 0;
-	while (*p)
+	while (*p != '\0')
 	{
 		if (*p == c)
 		{
@@ -62,12 +27,54 @@ char	**ft_split(const char *s, char c)
 			continue ;
 		}
 		start = p;
-		while (*p && *p != c)
+		while (*p != '\0' && *p != c)
 			p++;
 		result[count] = ft_strndup(start, p - start);
 		if (result[count] == NULL)
+		{
+			count--;
+			while (count > 0)
+				free(result[count--]);
+			free(result);
 			return (NULL);
+		}
 		count++;
 	}
 	return (result);
+}
+
+static size_t	ft_split_count(char *p, char c)
+{
+	size_t	count;
+
+	count = 0;
+	while (*p != '\0')
+	{
+		if (*p == c)
+		{
+			p++;
+			continue ;
+		}
+		count++;
+		while (*p != '\0' && *p != c)
+			p++;
+	}
+	return (count);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**result;
+	char	*p;
+	size_t	count;
+
+	if (s == NULL)
+		return (NULL);
+	p = (char *)s;
+	count = ft_split_count(p, c);
+	result = (char **)malloc(sizeof(char *) * (count + 1));
+	if (result == NULL)
+		return (NULL);
+	result[count] = NULL;
+	return (ft_allocate_split_strings(result, p, c));
 }
