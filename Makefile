@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2023/01/30 21:53:20 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/02/03 13:36:59 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,8 +49,16 @@ SRCS = \
 	   ft_strtrim.c \
 	   ft_split.c \
 	   ft_itoa.c \
+	   ft_strmapi.c \
+	   ft_striteri.c \
+	   ft_putchar_fd.c \
+	   ft_putstr_fd.c \
+	   ft_putendl_fd.c \
+	   ft_putnbr_fd.c \
 \
-	   ft_strndup.c
+	   ft_strndup.c \
+\
+	   ft_lstnew.c
 
 OBJS = $(SRCS:.c=.o)
 CC = cc

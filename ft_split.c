@@ -6,17 +6,25 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 11:06:25 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/01/30 21:34:56 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/02/02 13:16:53 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
+static void	ft_free(int count, char **result)
+{
+	count--;
+	while (count >= 0)
+		free(result[count--]);
+	free(result);
+}
+
 static char	**ft_allocate_split_strings(char **result, char *p, char c)
 {
 	char	*start;
-	size_t	count;
+	int		count;
 
 	count = 0;
 	while (*p != '\0')
@@ -32,10 +40,7 @@ static char	**ft_allocate_split_strings(char **result, char *p, char c)
 		result[count] = ft_strndup(start, p - start);
 		if (result[count] == NULL)
 		{
-			count--;
-			while (count > 0)
-				free(result[count--]);
-			free(result);
+			ft_free(count, result);
 			return (NULL);
 		}
 		count++;
