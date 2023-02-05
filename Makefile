@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2023/02/03 13:36:59 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/02/04 16:41:02 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,27 +56,34 @@ SRCS = \
 	   ft_putendl_fd.c \
 	   ft_putnbr_fd.c \
 \
-	   ft_strndup.c \
-\
-	   ft_lstnew.c
+	   ft_strndup.c
+
+SRCS_B = \
+		 ft_lstnew.c \
+		 ft_lstadd_front.c \
+		 ft_lstsize.c \
+		 ft_lstlast.c \
+		 ft_lstadd_front.c \
+		 ft_lstadd_back.c
 
 OBJS = $(SRCS:.c=.o)
+OBJS_B = $(SRCS_B:.c=.o)
+
 CC = cc
 CFLAGS = -g -Wall -Wextra -Werror #-fsanitize=address
 
-#ifdef withbonus
-#	SRCS += $SRCS_B
-#	OBJS += $OBJS_B
-#endif
-#	(SRCSに追加する)
+ifdef withbonus
+	SRCS += $(SRCS_B)
+	OBJS += $(OBJS_B)
+endif
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar -r $@ $^
 
-#bonus:
-#	make withbonus=1
+bonus: $(NAME)
+	make withbonus=1
 #	#makeを実行するだけ　SRCSとOBJSの中身が変わって　0だと通らない
 
 .c.o:
@@ -90,4 +97,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re bonus
