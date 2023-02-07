@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2023/02/04 16:41:02 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/02/07 16:14:04 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,12 +59,13 @@ SRCS = \
 	   ft_strndup.c
 
 SRCS_B = \
-		 ft_lstnew.c \
-		 ft_lstadd_front.c \
-		 ft_lstsize.c \
-		 ft_lstlast.c \
-		 ft_lstadd_front.c \
-		 ft_lstadd_back.c
+	ft_lstnew.c \
+	ft_lstadd_front.c \
+	ft_lstsize.c \
+	ft_lstlast.c \
+	ft_lstadd_front.c \
+	ft_lstadd_back.c \
+	ft_lstdelone.c
 
 OBJS = $(SRCS:.c=.o)
 OBJS_B = $(SRCS_B:.c=.o)
@@ -90,7 +91,7 @@ bonus: $(NAME)
 	$(CC) $(CFLAGS) -c $<
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(OBJS_B)
 
 fclean: clean
 	rm -f $(NAME)
