@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2023/02/10 20:21:30 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/02/11 18:52:26 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,6 +96,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean all
+re: fclean bonus all
 
 .PHONY: all clean fclean re bonus
