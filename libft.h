@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:55:57 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/11 17:23:33 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:19:57 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,11 @@ size_t	ft_strnlen(const char *s, size_t max_len);
 char	*ft_strncat(char *s1, const char *s2, size_t n);
 long	ft_strtol(const char *str, char **endptr, int base);
 char	*ft_strndup(const char *s1, size_t n);
+
+// Additional other function
+char	*ft_strjoin_free(char const *s1, char const *s2);
+int		ft_strnequ(char *s1, char *s2, int n);
+char	*ft_strnew(size_t size);
+void	ft_strdel(char **as);
 
 #endif
