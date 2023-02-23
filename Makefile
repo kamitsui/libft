@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2023/02/20 13:20:29 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/02/22 13:01:27 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,8 @@ SRCS = \
 	ft_strnequ.c \
 	ft_strnew.c \
 	ft_strdel.c \
-	ft_strjoin_free.c
+	ft_strjoin_free.c \
+	ft_itoa_binary.c
 
 SRCS_B = \
 	ft_lstnew.c \
