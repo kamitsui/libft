@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:19:22 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/23 19:51:00 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:58:23 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ int		error(char *input, t_state_machine *machine);
 
 void	process(char *input, t_state_machine machine)
 {
-	static t_f_process f_process[4] = {letter, flag, conv, error};
-	int		ret;
+	static t_f_process	f_process[4] = {letter, flag, conv, error};
+	int					ret;
 
-	while (input != NULL && *input != '\0')// machine.state == END
+	//while (input != NULL && *input != '\0')// machine.state == END
+	while (machine.state == END)
 	{
 		if ((ret = f_process[machine.state](input, &machine)) >= 0)
 			input += ret;
