@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:55:57 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/22 13:00:48 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/07/24 19:35:33 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ size_t	ft_strnlen(const char *s, size_t max_len);
 char	*ft_strncat(char *s1, const char *s2, size_t n);
 long	ft_strtol(const char *str, char **endptr, int base);
 char	*ft_strndup(const char *s1, size_t n);
+size_t	ft_count_words(char *str, char delimiter);
 
 // Additional other function
 char	*ft_strjoin_free(char const *s1, char const *s2);

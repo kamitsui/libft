@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 11:06:25 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/02 13:16:53 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/07/24 21:24:53 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,25 +48,6 @@ static char	**ft_allocate_split_strings(char **result, char *p, char c)
 	return (result);
 }
 
-static size_t	ft_split_count(char *p, char c)
-{
-	size_t	count;
-
-	count = 0;
-	while (*p != '\0')
-	{
-		if (*p == c)
-		{
-			p++;
-			continue ;
-		}
-		count++;
-		while (*p != '\0' && *p != c)
-			p++;
-	}
-	return (count);
-}
-
 char	**ft_split(const char *s, char c)
 {
 	char	**result;
@@ -76,7 +57,7 @@ char	**ft_split(const char *s, char c)
 	if (s == NULL)
 		return (NULL);
 	p = (char *)s;
-	count = ft_split_count(p, c);
+	count = ft_count_words(p, c);
 	result = (char **)malloc(sizeof(char *) * (count + 1));
 	if (result == NULL)
 		return (NULL);
