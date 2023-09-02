@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:55:57 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/07/27 22:04:46 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/09/02 17:04:29 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,8 @@ char	*ft_strtok(char *str, char const *sep);
 int		ft_abs(int i);
 int		ft_intcmp(int a, int b);
 int		ft_sign(int num);
+
+// Additional other function (from push_swap)
+bool	ft_isinteger(const char *str);
 
 #endif
