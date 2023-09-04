@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:55:57 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/09/02 17:04:29 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:52:06 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ int		ft_sign(int num);
 
 // Additional other function (from push_swap)
 bool	ft_isinteger(const char *str);
+bool	ft_isint(const char *str);
 
 #endif
