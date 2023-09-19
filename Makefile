@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2023/09/04 15:17:05 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/09/19 22:28:42 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,8 @@ SRCS = \
 	   ft_abs.c \
 	   \
 	   ft_isinteger.c \
-	   ft_isint.c
+	   ft_isint.c \
+	   ft_qsort.c
 
 
 SRCS_B = \
