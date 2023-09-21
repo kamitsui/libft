@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:55:57 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/09/19 22:29:45 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:19:19 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ size_t	ft_count_words(char *str, char delimiter);
 // Additional other function (from ft_printf)
 int		ft_isxdigit(int c);
 char	*ft_strjoin_free(char const *s1, char const *s2);
-bool	ft_strnequ(char *s1, const char *s2, int n);
+bool	ft_strnequ(const char *s1, const char *s2, int n);
 char	*ft_strnew(size_t size);
 void	ft_strdel(char **as);
 char	*ft_itoa_binary(int n);
