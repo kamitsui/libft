@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:55:57 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/09/21 13:19:19 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/10/29 19:54:20 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,8 @@ int		ft_sign(int num);
 bool	ft_isinteger(const char *str);
 bool	ft_isint(const char *str);
 void	ft_qsort(int arr[], int low, int high);
+
+// Additional other function (from minishell)
+void	*ft_realloc_tentative(void *ptr, size_t new_size, size_t old_size);
 
 #endif
