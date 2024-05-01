@@ -6,11 +6,12 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2023/09/19 22:28:42 by kamitsui         ###   ########.fr        #
+#    Updated: 2024/04/24 08:45:35 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+PROJECT_DIR = $(notdir $(CURDIR))
 SRCS = \
 	   ft_isalpha.c \
 	   ft_isdigit.c \
@@ -99,23 +100,41 @@ endif
 # all: bonus $(NAME)"loop
 # all: $(NAME) bonus"loop
 # all: bonus=1
-all: $(NAME)
+all: start $(NAME) end
+.PHONY: all
+
+start:
+	@echo "${YELLOW}Starting build process for '${PROJECT_DIR}'...${NC}"
+
+end:
+	@echo "${YELLOW}Build process completed.${NC}"
 
 $(NAME): $(OBJS)
 	ar -r $@ $^
+	@echo "${GREEN}Successfully created archive: $@${NC}"
 
 bonus:
 	make withbonus=1
+.PHONY: bonus
 
 .c.o:
 	$(CC) $(CFLAGS) -c $<
 
 clean:
+	@echo "${RED}Cleaning object files of '${PROJECT_DIR}'...${NC}"
 	rm -f $(OBJS) $(OBJS_B)
+.PHONY: clean
 
 fclean: clean
+	@echo "${RED}Removing archive file...${NC}"
 	rm -f $(NAME)
+	@echo "${GREEN}Archive file removed.${NC}"
+.PHONY: fclean
 
 re: fclean bonus all
 
-.PHONY: all clean fclean re bonus
+# Color Definitions
+RED=\033[0;31m
+GREEN=\033[0;32m
+YELLOW=\033[0;33m
+NC=\033[0m # No Color
