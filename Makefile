@@ -6,12 +6,19 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2024/04/24 08:45:35 by kamitsui         ###   ########.fr        #
+#    Updated: 2024/06/13 15:28:25 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# Build target
 NAME = libft.a
+
+# Directories
 PROJECT_DIR = $(notdir $(CURDIR))
+OBJ_DIR = objs
+DEP_DIR = .deps
+
+# Source files
 SRCS = \
 	   ft_isalpha.c \
 	   ft_isdigit.c \
@@ -74,7 +81,6 @@ SRCS = \
 	   ft_isint.c \
 	   ft_qsort.c
 
-
 SRCS_B = \
 	     ft_lstnew.c \
 	     ft_lstadd_front.c \
@@ -87,51 +93,89 @@ SRCS_B = \
 	     ft_lstiter.c \
 	     ft_lstmap.c
 
-OBJS = $(SRCS:.c=.o)
-OBJS_B = $(SRCS_B:.c=.o)
+# Object files and dependency files
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+DEPS = $(addprefix $(DEP_DIR)/, $(SRCS:.c=.d))
+OBJS_B = $(addprefix $(OBJ_DIR)/, $(SRCS_B:.c=.o))
+DEPS_B = $(addprefix $(DEP_DIR)/, $(SRCS_B:.c=.d))
 
+# Compiler
 CC = cc
-CFLAGS = -Wall -Wextra -Werror# -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
+CF_ASAN = -g -fsanitize=address
+CF_THSAN = -g -fsanitize=thread
+CF_DEP = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
 
-ifdef withbonus
-	OBJS += $(OBJS_B)
-endif
+# Rules for building object files
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(DEP_DIR)
+	$(CC) $(CFLAGS) $(CF_DEP) -c $< -o $@
 
-# all: bonus $(NAME)"loop
-# all: $(NAME) bonus"loop
-# all: bonus=1
+$(DEP_DIR)/%.d: %.c
+	@mkdir -p $(DEP_DIR)
+
+# Default target
 all: start $(NAME) end
 .PHONY: all
 
 start:
 	@echo "${YELLOW}Starting build process for '${PROJECT_DIR}'...${NC}"
+.PHONY: start
 
 end:
 	@echo "${YELLOW}Build process completed.${NC}"
+.PHONY: end
 
-$(NAME): $(OBJS)
-	ar -r $@ $^
+# Target
+$(NAME): $(DEPS) $(OBJS)
+	ar -r $@ $(OBJS)
 	@echo "${GREEN}Successfully created archive: $@${NC}"
 
+# Bonus mode make rule
 bonus:
-	make withbonus=1
+	make WITH_BONUS=1
 .PHONY: bonus
 
-.c.o:
-	$(CC) $(CFLAGS) -c $<
+# Address sanitizer mode make rule
+asan: fclean
+	make WITH_ASAN=1
+.PHONY: asan
 
+# Thread sanitizer mode make rule
+thsan: fclean
+	make WITH_THSAN=1
+.PHONY: thsan
+
+# Clean target
 clean:
 	@echo "${RED}Cleaning object files of '${PROJECT_DIR}'...${NC}"
-	rm -f $(OBJS) $(OBJS_B)
+	rm -rf $(OBJ_DIR) $(DEP_DIR)
 .PHONY: clean
 
+# Clean and remove library target
 fclean: clean
 	@echo "${RED}Removing archive file...${NC}"
 	rm -f $(NAME)
 	@echo "${GREEN}Archive file removed.${NC}"
 .PHONY: fclean
 
-re: fclean bonus all
+# Rebuild target
+#re: fclean bonus all
+re: fclean all
+
+# Enable dependency file
+-include $(DEPS)
+
+# Enabel Address sanitizer
+ifdef WITH_ASAN
+CFLAGS += $(CF_ASAN)
+endif
+
+# Enabel Thread sanitizer
+ifdef WITH_THSAN
+CFLAGS += $(CF_THSAN)
+endif
 
 # Color Definitions
 RED=\033[0;31m
