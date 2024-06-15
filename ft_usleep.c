@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 08:38:18 by kamitsui          #+#    #+#             */
-/*   Updated: 2024/06/15 14:52:25 by kamitsui         ###   ########.fr       */
+/*   Updated: 2024/06/15 16:38:50 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static int	check_time_enough(long long start_us, unsigned int micro_seconds)
 	current_us = (current.tv_sec * 1000000LL) + current.tv_usec;
 	elapsed_us = current_us - start_us;
 	if (elapsed_us >= micro_seconds)
-		return ((int)false);
-	return ((int)true);
+		return ((int)true);
+	return ((int)false);
 }
 
 int	ft_usleep(unsigned int micro_seconds)
