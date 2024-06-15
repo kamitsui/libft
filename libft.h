@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:55:57 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/10/29 19:54:20 by kamitsui         ###   ########.fr       */
+/*   Updated: 2024/06/15 14:20:06 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,8 @@ void	ft_qsort(int arr[], int low, int high);
 
 // Additional other function (from minishell)
 void	*ft_realloc_tentative(void *ptr, size_t new_size, size_t old_size);
+
+// Additional other function (from philosophers)
+int		ft_usleep(unsigned int micro_seconds);
 
 #endif
