@@ -6,13 +6,14 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 08:38:18 by kamitsui          #+#    #+#             */
-/*   Updated: 2024/06/15 14:22:03 by kamitsui         ###   ########.fr       */
+/*   Updated: 2024/06/15 14:52:25 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/time.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 static int	check_time_enough(long long start_us, unsigned int micro_seconds)
 {
@@ -46,5 +47,7 @@ int	ft_usleep(unsigned int micro_seconds)
 			break ;
 		status = usleep(100);
 	}
+	if (status == true)
+		return (EXIT_SUCCESS);
 	return (status);
 }
