@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2024/06/15 08:39:27 by kamitsui         ###   ########.fr        #
+#    Updated: 2024/08/04 06:14:56 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,9 @@ SRCS = \
 	   ft_isint.c \
 	   ft_qsort.c \
 	   \
-	   ft_usleep.c
+	   ft_usleep.c \
+	   \
+	   get_next_line.c
 
 SRCS_B = \
 	     ft_lstnew.c \
