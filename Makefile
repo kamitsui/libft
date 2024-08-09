@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2024/08/04 06:14:56 by kamitsui         ###   ########.fr        #
+#    Updated: 2024/08/09 17:56:25 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,6 +108,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 CF_ASAN = -g -fsanitize=address
 CF_THSAN = -g -fsanitize=thread
+CF_GENERATE_DEBUG_INFO = -g
 CF_DEP = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
 
 # Rules for building object files
@@ -151,6 +152,11 @@ thsan: fclean
 	make WITH_THSAN=1
 .PHONY: thsan
 
+# Leak check
+check: fclean
+	make WITH_G_INFO=1
+.PHONY: check
+
 # Clean target
 clean:
 	@echo "${RED}Cleaning object files of '${PROJECT_DIR}'...${NC}"
@@ -179,6 +185,11 @@ endif
 # Enabel Thread sanitizer
 ifdef WITH_THSAN
 CFLAGS += $(CF_THSAN)
+endif
+
+# Enabel valgrind tool
+ifdef WITH_G_INFO
+CFLAGS += $(CF_GENERATE_DEBUG_INFO)
 endif
 
 # Color Definitions
