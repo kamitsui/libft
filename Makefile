@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:14:33 by kamitsui          #+#    #+#              #
-#    Updated: 2024/12/17 16:52:43 by kamitsui         ###   ########.fr        #
+#    Updated: 2024/12/18 03:29:50 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,6 @@ SRCS = \
 	   ft_isint.c \
 	   ft_qsort.c \
 	   \
-	   ft_usleep.c \
 	   ft_realloc_tentative.c \
 	   \
 	   ft_isspace.c \

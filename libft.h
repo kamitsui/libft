@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:55:57 by kamitsui          #+#    #+#             */
-/*   Updated: 2024/12/17 16:52:06 by kamitsui         ###   ########.fr       */
+/*   Updated: 2024/12/18 03:29:34 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	ft_qsort(int arr[], int low, int high);
 void	*ft_realloc_tentative(void *ptr, size_t new_size, size_t old_size);
 
 // Additional other function (from philosophers)
-int		ft_usleep(unsigned int micro_seconds);
+//int		ft_usleep(unsigned int micro_seconds);// not allowed in cub3D
 
 // Additional from Cub3d
 int		ft_isspace(int c);
